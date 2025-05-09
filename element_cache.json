@@ -1,0 +1,114 @@
+{
+  "overview-destination-details": {
+    "type": "Box",
+    "p1": [
+      1165,
+      86
+    ],
+    "p2": [
+      1728,
+      206
+    ],
+    "scrollable": false
+  },
+  "overview-actions": {
+    "type": "Box",
+    "p1": [
+      1165,
+      210
+    ],
+    "p2": [
+      1728,
+      253
+    ],
+    "scrollable": false
+  },
+  "overview-tabs": {
+    "type": "Box",
+    "p1": [
+      1127,
+      259
+    ],
+    "p2": [
+      1728,
+      291
+    ],
+    "scrollable": false
+  },
+  "overview-list": {
+    "type": "Box",
+    "p1": [
+      1128,
+      294
+    ],
+    "p2": [
+      1725,
+      933
+    ],
+    "scrollable": false
+  },
+  "live-action": {
+    "type": "TextField",
+    "box": {
+      "p1": [
+        718,
+        745
+      ],
+      "p2": [
+        1034,
+        820
+      ],
+      "scrollable": false
+    }
+  },
+  "mine-button": {
+    "type": "Box",
+    "p1": [
+      994,
+      885
+    ],
+    "p2": [
+      1042,
+      930
+    ],
+    "scrollable": false
+  },
+  "system-name": {
+    "type": "TextField",
+    "box": {
+      "p1": [
+        98,
+        177
+      ],
+      "p2": [
+        179,
+        197
+      ],
+      "scrollable": false
+    }
+  },
+  "fullscreen:": {
+    "type": "Box",
+    "p1": [
+      4,
+      69
+    ],
+    "p2": [
+      1727,
+      1059
+    ],
+    "scrollable": false
+  },
+  "fullscreen": {
+    "type": "Box",
+    "p1": [
+      2,
+      76
+    ],
+    "p2": [
+      1728,
+      1057
+    ],
+    "scrollable": false
+  }
+}

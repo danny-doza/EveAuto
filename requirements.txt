@@ -1,0 +1,10 @@
+humancursor
+levenshtein
+numpy
+opencv-python
+pyautogui
+pynput
+pytesseract
+pyqt5
+pyobjc
+serial
