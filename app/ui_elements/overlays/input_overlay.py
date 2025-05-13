@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QDialog, QApplication, QLabel, QVBoxLayout
 from PyQt5.QtCore import Qt, QPoint
 
+from rich_log import get_logger
+logger = get_logger("InputCaptureDialog")
+
 class InputCaptureDialog(QDialog):
     def __init__(self):
         super().__init__()
@@ -28,13 +31,13 @@ class InputCaptureDialog(QDialog):
 
 
     def closeEvent(self, event):
-        print("[DEBUG] Overlay closed")
+        logger.debug("Overlay closed")
         self.releaseMouse()
 
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
-            print("[DEBUG] ESC key pressed, closing dialog")
+            logger.debug("ESC key pressed, closing dialog")
             self._click_pos = None
             self.reject()
         else:
@@ -42,7 +45,7 @@ class InputCaptureDialog(QDialog):
 
 
     def mousePressEvent(self, event):
-        print(f"[DEBUG] Mouse click at {event.globalPos()}")
+        logger.debug(f"Mouse click at {event.globalPos()}")
         self._click_pos = event.globalPos()
         self.accept()
 

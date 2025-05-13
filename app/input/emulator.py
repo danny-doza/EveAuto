@@ -5,9 +5,11 @@ import pyautogui
 
 from pynput.mouse import Controller as MouseController
 from pynput.keyboard import Controller as KeyboardController
-
 mouse = MouseController()
 keyboard = KeyboardController()
+
+from rich_log import get_logger
+logger = get_logger("emulator")
 
 class ProMicroEmulator:
 
@@ -22,11 +24,11 @@ class ProMicroEmulator:
     def _find_port(self):
         candidates = glob.glob("/dev/tty.usbmodem*")
         if not candidates:
-            print("No USB serial device found matching /dev/tty.usbmodem*. Disabling Pro Micro emulator.")
+            logger.warning("No USB serial device found matching /dev/tty.usbmodem*. Disabling Pro Micro emulator.")
             self.online = False
             return None
         
-        print(f"[INFO] Found Pro Micro on {candidates[0]}")
+        logger.info(f"[INFO] Found Pro Micro on {candidates[0]}")
         self.online = True
         return candidates[0]
 
@@ -36,9 +38,9 @@ class ProMicroEmulator:
             with serial.Serial(self.port, self.baud, timeout=1) as ser:
                 time.sleep(self.connect_delay)
                 ser.write((message.strip() + "\n").encode("utf-8"))
-                print(f"[Sent] {message}")
+                logger.debug(f"[Sent] {message}")
         except serial.SerialException as e:
-            print(f"[ERROR] Could not open serial port {self.port}: {e}")
+            logger.error(f"Could not open serial port {self.port}: {e}")
 
 
     def press(self, key: str):
@@ -72,7 +74,7 @@ class ProMicroEmulator:
     def move_and_click(self, x: int, y: int, button: str = "LEFT"):
         button = button.strip().upper()
         if button not in ["LEFT", "RIGHT", "MIDDLE"]:
-            print(f"[WARN] Unsupported button '{button}', defaulting to LEFT")
+            logger.warning(f"Unsupported button '{button}', defaulting to LEFT")
             button = "LEFT"
         x_hid, y_hid = self._to_hid_coords(x, y)
         self.send(f"mouse_click {x_hid} {y_hid} {button}")

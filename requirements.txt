@@ -1,3 +1,4 @@
+graphviz
 humancursor
 levenshtein
 numpy
@@ -7,4 +8,7 @@ pynput
 pytesseract
 pyqt5
 pyobjc
+py_trees
+rich-logging
 serial
+transitions

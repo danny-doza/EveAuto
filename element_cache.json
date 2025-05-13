@@ -110,5 +110,17 @@
       1057
     ],
     "scrollable": false
+  },
+  "inventory": {
+    "type": "Box",
+    "p1": [
+      48,
+      409
+    ],
+    "p2": [
+      643,
+      856
+    ],
+    "scrollable": false
   }
 }

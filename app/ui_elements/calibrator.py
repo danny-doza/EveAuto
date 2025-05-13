@@ -12,6 +12,9 @@ from ui_elements.overlays.overlays import Overlays
 
 from pynput import keyboard, mouse
 
+from rich_log import get_logger
+logger = get_logger("UIElementCalibrator")
+
 class UIElementCalibrator:
 
     _overlay_app = None
@@ -86,7 +89,7 @@ class UIElementCalibrator:
         dialog = InputCaptureDialog()
         pos = dialog.get_click_position()
         
-        print(f"[DEBUG] InputCaptureDialog returned: {pos}")
+        logger.debug(f"InputCaptureDialog returned: {pos}")
         return Point(pos.x(), pos.y()) if pos else None
     
 
@@ -157,7 +160,7 @@ class UIElementCalibrator:
                 )
                 
                 if prev_confirmed:
-                    print(f"User accepted prev definition for ui-element: {label}")
+                    logger.info(f"User accepted prev definition for ui-element: {label}")
                     
                     results[label] = cached
                     continue
@@ -172,7 +175,7 @@ class UIElementCalibrator:
                 raise TypeError(f"Unsupported element type: {element_type}")
 
             if value is None:
-                print(f"Skipping {label}...")
+                logger.info(f"Skipping {label}...")
                 continue
 
             results[label] = value

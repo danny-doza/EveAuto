@@ -72,10 +72,6 @@ class TextField(UIBox):
     # # Show a live debug overlay
     # textfield.show_debug_overlay("Username Field", duration=3)
 
-    # # Extract text and confidence using OCR
-    # print(f"Extracted Text: {text}")
-    # print(f"OCR Confidence: {confidence:.2f}")
-
     # # Save screenshot of field
     # img = textfield.screenshot()
     # img.save("username_field.png")

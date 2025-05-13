@@ -21,7 +21,6 @@ class HighlightOverlay(QtWidgets.QWidget):
         self.duration = duration
         self.shape = shape
 
-        print(f"Highlighting {label} overlay at ({x}, {y}) with size ({width}, {height}) for {duration} seconds.")
         QtCore.QTimer.singleShot(duration * 1000, self.close)
 
     def paintEvent(self, event):

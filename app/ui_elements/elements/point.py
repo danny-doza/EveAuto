@@ -11,6 +11,9 @@ from ui_elements.overlays.overlays import Overlays
 from input.emulator import mouse, keyboard, emulator
 from actions import Actions
 
+from rich_log import get_logger
+logger = get_logger("Point")
+
 @dataclass
 class Point(UIElement):
     
@@ -26,7 +29,7 @@ class Point(UIElement):
         """Clicks on the point."""
 
         if self.x is None or self.y is None:
-            print("Point x and y coords are missing, unable to click.")
+            logger.warning("Point x and y coords are missing, unable to click.")
             return False
         
         return Actions.click(self.x, self.y, button=button, keys=keys)
@@ -36,7 +39,7 @@ class Point(UIElement):
         """Press a key or set of keys and click on the point."""
 
         if self.x is None or self.y is None:
-            print("Point x and y coords are missing, unable to click.")
+            logger.warning("Point x and y coords are missing, unable to click.")
             return False
 
         return Actions.key_and_click(self.x, self.y, keys, button=button)
